@@ -3,37 +3,23 @@
 
 cantidad()
 function cantidad(){
-    x = prompt("Cantidad de numeros: ")
-    return x
-}
-a = x
-if (a != null) {
-    if(a >= 0||x < 0){
-        num = a
-        let sumatoria
-        let total = 0
-        for (let i = 0; i < num; i++) {
-            sumatoria = prompt("Escriba el" + " " + (i+1) + "° número :")
-            total = parseInt(total) + parseFloat(sumatoria)
+    cant = prompt("Cantidad de numeros: ")
+    if (cant != null) {
+        if(cant>=0||cant<0){
+            num = cant
+            let sumatoria
+            let total = 0
+            for (let i = 0; i < num; i++) {
+                sumatoria = prompt("Escriba el" + " " + (i+1) + "° número :")
+                total = parseInt(total) + parseFloat(sumatoria)
+            }
+            promedio = total/cant
+            promedio = promedio.toFixed(2)
+            alert("Suma total: " + parseFloat(total))
+            alert("El promedio de la suma de los " + cant + " "+ "números es =" + " " + promedio)
+            }else{
+            alert('Por favor, ingrese un valor numérico válido.');
+            cantidad()
         }
-        promedio = total/a
-        alert("Suma total: " + parseFloat(total))
-        alert("El promedio de la suma de " + a + " "+ "números es =" + " " + promedio)
-        }else{
-        alert('Por favor, ingrese un valor numérico válido.');
-        cantidad()
+        }
 }
-}
-
-
-
-// num = cant
-// let sumatoria
-// let total = 0
-// for (let i = 0; i < num; i++) {
-//     sumatoria = prompt("Escriba el" + " " + (i+1) + "° número :")
-//     total = parseInt(total) + parseFloat(sumatoria)
-// }
-// promedio = total/cant
-// alert("Suma total: " + parseFloat(total))
-// alert("El promedio de la suma de " + cant + " "+ "números es =" + " " + promedio)
