@@ -1,13 +1,39 @@
-let i
-alert("Bienvenido a la calculadora de cuadrados js")
-while (i != "no") {
-    let x = prompt("Ingrese un valor para elevarlo al cuadrado")
-    if(x > 0 || x < 0){
-        let potencia= x * x
-        alert("El cuadrado de"+" "+ x +" "+"es"+ " "+ potencia)
-        i = prompt("¿Desea continuar?(no, para parar la calculadora)")
-    }
-    else{
-    alert("Ingresar dato valido")
-    }
-    }
+// Promedio personas ingresadas
+
+
+cantidad()
+function cantidad(){
+    x = prompt("Cantidad de numeros: ")
+    return x
+}
+a = x
+if (a != null) {
+    if(a >= 0||x < 0){
+        num = a
+        let sumatoria
+        let total = 0
+        for (let i = 0; i < num; i++) {
+            sumatoria = prompt("Escriba el" + " " + (i+1) + "° número :")
+            total = parseInt(total) + parseFloat(sumatoria)
+        }
+        promedio = total/a
+        alert("Suma total: " + parseFloat(total))
+        alert("El promedio de la suma de " + a + " "+ "números es =" + " " + promedio)
+        }else{
+        alert('Por favor, ingrese un valor numérico válido.');
+        cantidad()
+}
+}
+
+
+
+// num = cant
+// let sumatoria
+// let total = 0
+// for (let i = 0; i < num; i++) {
+//     sumatoria = prompt("Escriba el" + " " + (i+1) + "° número :")
+//     total = parseInt(total) + parseFloat(sumatoria)
+// }
+// promedio = total/cant
+// alert("Suma total: " + parseFloat(total))
+// alert("El promedio de la suma de " + cant + " "+ "números es =" + " " + promedio)
