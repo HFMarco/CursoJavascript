@@ -14,7 +14,8 @@ function ingresardocumento() {
     let libros = [];
     let numeroentradas = parseInt(prompt("¿Cuántos documentos desea almacenar?"));
     for (let i = 0; i < numeroentradas; i++) {
-        let str = i.toString();
+        let numeroid = i + 1;
+        let str = numeroid.toString();
         let id = str.padStart(4,"0");
         let nombre = prompt("Ingrese el título");
         let autor = prompt("Ingrese el autor");
