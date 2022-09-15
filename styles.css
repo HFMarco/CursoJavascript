@@ -1,0 +1,22 @@
+html{
+    scroll-behavior: smooth;
+}
+main {
+    box-sizing: border-box;
+    overflow: hidden;
+    font-family: "Work Sans", sans-serif;
+
+}
+.titulo{
+    text-align: center;
+    text-decoration: none;
+}
+.imagen{
+    margin: 0 auto;
+    margin-top: 100px;
+    height: 400px;
+    width: 400px;
+    background-image: url(./media/books.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
