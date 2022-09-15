@@ -75,3 +75,120 @@
 // promedio = total/cant
 // alert("Suma total: " + parseFloat(total))
 // alert("El promedio de la suma de " + cant + " "+ "números es =" + " " + promedio)
+
+// Promedio personas ingresadas
+
+
+// cantidad()
+// function cantidad(){
+//     cant = prompt("Cantidad de numeros: ")
+//     if (cant != null) {
+//         if(cant>=0||cant<0){
+//             num = cant
+//             let sumatoria
+//             let total = 0
+//             for (let i = 0; i < num; i++) {
+//                 sumatoria = prompt("Escriba el" + " " + (i+1) + "° número :")
+//                 total = parseInt(total) + parseFloat(sumatoria)
+//             }
+//             promedio = total/cant
+//             promedio = promedio.toFixed(2)
+//             alert("Suma total: " + parseFloat(total))
+//             alert("El promedio de la suma de los " + cant + " "+ "números es =" + " " + promedio)
+//             }else{
+//             alert('Por favor, ingrese un valor numérico válido.');
+//             cantidad()
+//         }
+//         }
+// }
+//fin ejemplo
+
+//INTRODUCCIÓN
+// const persona = {
+//     nombre : "Marco",
+//     apellido : "Flores",
+//     edad : 25,
+//     pais: "Perú",
+//     ciudad : "Chincha",
+//     esDesarrollador : true
+// }
+//imrpimiendo el objeto en la consola
+// console.log(persona)
+
+//Alert solo imprimen strings..
+// alert(persona.nombre)
+
+//ACCEDIENDO A LAS PROPIEDADES DEL OBJETO
+//método1
+// console.log(persona.nombre)
+//método2
+// console.log(persona["apellido"])
+
+//Imprimiendo tipo de dato
+// console.log(typeof persona["apellido"])
+
+//Accediendo a datos de objetos
+
+// persona.edad = 40
+// persona["edad"] = 50
+
+// EJEMPLO
+
+function Persona (nombre, apellido, edad, pais, ciudad, esDesarrollador){
+    this.nombre = nombre
+    this.apellido = apellido
+    this.edad = edad
+    this.pais = pais
+    this.ciudad = ciudad
+    this.esDesarrollador = esDesarrollador
+}
+
+// const PersonaUno = new Persona("Marco", "Flores", 23, "Perú", "Ica", true)
+// console.log(PersonaUno)
+
+//Pidiendo datos 
+
+function peticion(){
+    let nombre = prompt("Ingrese su Nombre")
+    let apellido =prompt("Ingrese su Apellido")
+    let edad =  parseInt(prompt("Ingrese su edad"))
+    let pais =  prompt("Ingrese su Pais")
+    let ciudad = prompt("Ingrese su ciudad")
+    let esDesarrollador = prompt("Es usted, un desarrollador?(si/no)")
+
+    let esDesarrolladorbool = false
+
+    if (esDesarrollador.toLocaleLowerCase() == "si"){
+        esDesarrolladorbool = true
+    }
+    let resultpeticion = new Persona(nombre,apellido,edad,pais,ciudad,esDesarrolladorbool)
+    return resultpeticion
+}
+
+let personauno = peticion()
+console.log(personauno)
+
+
+//Clases 
+
+class producto {
+    constructor(nombre,precio,cantidad){
+        this.nombre = nombre
+        this.precio = precio
+        this.cantidad = cantidad
+        this.vendido = true
+    }
+    aumentarprecio = (precioAAumentar) => this.precio = this.precio + precioAAumentar
+    disminuirprecio = (precioADisminuir) => this.precio = this.precio - precioADisminuir
+}
+
+let nombrepro = prompt("nombre")
+let precio = parseInt(prompt("Cual es el precio"))
+let cantidadpro = parseInt(prompt("Cual es la cantidad"))
+
+const item = new producto(nombrepro,precio,cantidadpro)
+item.aumentarprecio(10)
+console.log(item.precio)
+item.disminuirprecio(11)
+console.log(item.precio)
+console.log(item)

@@ -1,25 +1,36 @@
-// Promedio personas ingresadas
-
-
-cantidad()
-function cantidad(){
-    cant = prompt("Cantidad de numeros: ")
-    if (cant != null) {
-        if(cant>=0||cant<0){
-            num = cant
-            let sumatoria
-            let total = 0
-            for (let i = 0; i < num; i++) {
-                sumatoria = prompt("Escriba el" + " " + (i+1) + "° número :")
-                total = parseInt(total) + parseFloat(sumatoria)
-            }
-            promedio = total/cant
-            promedio = promedio.toFixed(2)
-            alert("Suma total: " + parseFloat(total))
-            alert("El promedio de la suma de los " + cant + " "+ "números es =" + " " + promedio)
-            }else{
-            alert('Por favor, ingrese un valor numérico válido.');
-            cantidad()
-        }
-        }
+class Registro {
+    base(nombre,autor,fecha,paginas,idioma,tipoarchivo){
+        this.nombre = nombre.toUpperCase();
+        this.autor = autor;
+        this.fecha = fecha;
+        this.paginas = paginas;
+        this.idioma = idioma;
+        this.tipoarchivo = tipoarchivo;
+    }
 }
+function ingresardocumento() {
+    let libros = [];
+    let numeroentradas = parseInt(prompt("¿Cuántos documentos desea almacenar?"));
+    for (let i = 0; i < numeroentradas; i++){
+    let nombre = prompt("Ingrese el título");
+    let autor = prompt("Ingrese el autor");
+    let fecha = prompt("sds")
+    let paginas = parseInt(prompt("Ingrese el número de páginas"));
+    let idioma = prompt("El documento en qué idioma se encuentra");
+    let tipoarchivo = prompt("Tipo de documento(pdf/doc/epub)");
+    let nuevoregistro = new Registro(nombre,autor,fecha,paginas,idioma,tipoarchivo);
+    libros.push(nuevoregistro)
+    }
+    return libros
+}
+function registrodata(libros){
+    for(let libro of libros){
+        console.log(libro)
+    }
+}
+function main(){
+    let libros = ingresardocumento()
+    registrodata(libros)
+}
+
+main()
