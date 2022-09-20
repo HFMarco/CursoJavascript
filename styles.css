@@ -5,7 +5,6 @@ main {
     box-sizing: border-box;
     overflow: hidden;
     font-family: "Work Sans", sans-serif;
-
 }
 .titulo{
     text-align: center;
@@ -14,9 +13,37 @@ main {
 .imagen{
     margin: 0 auto;
     margin-top: 100px;
-    height: 400px;
+    height: 312px;
     width: 400px;
     background-image: url(./media/books.png);
     background-size: contain;
     background-repeat: no-repeat;
+}
+.divdocs{
+    margin: 0 auto;
+    height: auto;
+    width: 80%;
+    background-color: aqua;
+    padding: 0 20px 0 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 19px;
+    grid-row-gap: 17px; 
+}
+.contenedor{
+    width: auto;
+    height: auto;
+}
+.elemento-lista{
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 5px 15px 0px 15px;
+    margin-top: 10px;
+}
+.p-titulo{
+    text-align: center;
+    font-size: 20px;
+    text-decoration: underline;
+    text-transform: capitalize;
 }

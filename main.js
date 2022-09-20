@@ -1,3 +1,4 @@
+//Creando el constructor
 class registro {
     constructor(id,nombre, autor, fecha, paginas, idioma, tipoarchivo){
         this.id = id;
@@ -9,7 +10,8 @@ class registro {
         this.tipoarchivo = tipoarchivo;
     }
 }
-
+let libros = ingresardocumento()
+//Pide data
 function ingresardocumento() {
     let libros = [];
     let numeroentradas = parseInt(prompt("¿Cuántos documentos desea almacenar?"));
@@ -27,24 +29,28 @@ function ingresardocumento() {
         libros.push(nuevoregistro);
     }
     return libros;
-    
 }
-function mostrardatos(libros){
-    for(let libro of libros){
-        console.log("<=================>")
-        console.log("ID: " + libro.id)
-        console.log("Nombre del libro : " + libro.nombre)
-        console.log("Autor de documento: " + libro.autor)
-        console.log("Fecha de subida: " + libro.fecha)
-        console.log("Número de Páginas: " + libro.paginas)
-        console.log("Idioma: " + libro.idioma)
-        console.log("Tipo de archivo: " + libro.tipoarchivo)
-        
-    }
-}
-function main() {
-    let libros = ingresardocumento()
-    mostrardatos(libros)
-    console.table(libros)
-}
-main()
+
+//Señalando DIV principal
+let contenedorlibros = document.getElementById("mostrardocs");
+//Muestra data en el DOM
+libros.forEach((libro) => {
+    let lista = document.createElement("div");
+    lista.className = "elemento-lista"
+    lista.id = `lista lista-${libro.id}`
+    lista.innerHTML=`
+    <div class="contenedor">
+        <p class="p-titulo">${libro.nombre}</p>
+        <p class="p-lista">ID: ${libro.id}</p>
+        <p class="p-lista">Autor: ${libro.autor}</p>
+        <p class="p-lista">Fecha: ${libro.fecha}</p>
+        <p class="p-lista">Páginas: ${libro.paginas}</p>
+        <p class="p-lista">Idioma: ${libro.idioma}</p>
+        <p class="p-lista">Tipo de Archivo: ${libro.tipoarchivo}</p>
+    </div>
+    `
+    contenedorlibros.append(lista)
+});
+
+
+
