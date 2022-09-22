@@ -12,12 +12,12 @@ main {
 }
 .imagen{
     margin: 0 auto;
-    margin-top: 100px;
-    height: 312px;
-    width: 400px;
+    height: 350px;
+    width: 490px;
     background-image: url(./media/books.png);
     background-size: contain;
     background-repeat: no-repeat;
+    margin-top: 40px;
 }
 .divdocs{
     margin: 0 auto;
@@ -34,6 +34,15 @@ main {
 .contenedor{
     width: auto;
     height: auto;
+    margin: 0 auto;
+    padding-top: 69px;
+    font-size: 24px;
+    padding-left: 133px;
+}
+.contenedorreq{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 auto;
 }
 .elemento-lista{
     background-color: white;
@@ -47,3 +56,27 @@ main {
     text-decoration: underline;
     text-transform: capitalize;
 }
+.formulario{
+    height: auto;
+    width: auto;
+}
+.container{
+    height: auto;
+    width: auto;
+    margin-bottom: 10px;
+}
+input{
+    width: 350px;
+    height: 30px;
+    outline: none;
+}
+input[type=text]:focus {
+    border: 3px solid #b5b5b5;
+}
+/* input {
+    background-color: transparent;
+    border: 0px solid;
+    height: 20px;
+    width: 160px;
+    color: #CCC;
+} */
