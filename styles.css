@@ -80,3 +80,12 @@ input[type=text]:focus {
     width: 160px;
     color: #CCC;
 } */
+
+.contenedor_lista{
+    height: auto;
+    width: auto;
+}
+select{
+    width: 350px;
+    height: 30px;
+}

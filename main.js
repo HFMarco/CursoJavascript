@@ -33,8 +33,8 @@ function validarFormulario(event) {
     let autor = inputAutor.value;
     let fecha = parseFloat(inputFecha.value);
     let paginas = parseFloat(inputPaginas.value);
-    let idioma = parseInt(inputIdioma.value);
-    let tipoarchivo = parseInt(inputTipoArchivo.value);
+    let idioma = inputIdioma.value;
+    let tipoarchivo = inputTipoArchivo.value;
 
     const idExiste = libros.some((libro) => libro.id === id);
     if (!idExiste) {
@@ -56,15 +56,15 @@ function validarFormulario(event) {
         alert("El id ya existe");
     }
 }
-// function eliminarProducto(idProducto) {
-//     let columnaBorrar = document.getElementById(`columna-${idProducto}`);
-//     let indiceBorrar = productos.findIndex(
-//         (producto) => Number(producto.id) === Number(idProducto)
-//     );
+function eliminarRegistro(id) {
+    let columnaBorrar = document.getElementById(`lista lista-${id}`);
+    let indiceBorrar = libros.findIndex(
+        (libro) => Number(libro.id) === Number(id)
+    );
 
-//     productos.splice(indiceBorrar, 1);
-//     columnaBorrar.remove();
-// }
+    libros.splice(indiceBorrar, 1);
+    columnaBorrar.remove();
+}
 
 function pintarProductos() {
     let contenedorlibros = document.getElementById("mostrardocs");
@@ -74,7 +74,7 @@ function pintarProductos() {
             lista.className = "elemento-lista"
             lista.id = `lista lista-${libro.id}`
             lista.innerHTML=`
-            <div class="contenedor">
+            <div class="contenedor_lista">
                 <p class="p-titulo">${libro.nombre}</p>
                 <p class="p-lista">ID: ${libro.id}</p>
                 <p class="p-lista">Autor: ${libro.autor}</p>
@@ -82,11 +82,14 @@ function pintarProductos() {
                 <p class="p-lista">Páginas: ${libro.paginas}</p>
                 <p class="p-lista">Idioma: ${libro.idioma}</p>
                 <p class="p-lista">Tipo de Archivo: ${libro.tipoarchivo}</p>
+                <div class="card-footer">
+                <button class="btn btn-danger" id="botonEliminar-${libro.id}" >Eliminar</button>
+                </div>
             </div>
             `
             contenedorlibros.append(lista)
-        // let botonEliminar = document.getElementById(`botonEliminar-${producto.id}`);
-        // botonEliminar.onclick = () => eliminarProducto(producto.id);
+        let botonEliminar = document.getElementById(`botonEliminar-${libro.id}`);
+        botonEliminar.onclick = () => eliminarRegistro(libro.id);
     });
 }
 
@@ -96,28 +99,11 @@ function main() {
 }
 
 main();
-// //Señalando DIV principal
-// let contenedorlibros = document.getElementById("mostrardocs");
-// //Muestra data en el DOM
-// libros.forEach((libro) => {
-//     let lista = document.createElement("div");
-//     lista.className = "elemento-lista"
-//     lista.id = `lista lista-${libro.id}`
-//     lista.innerHTML=`
-//     <div class="contenedor">
-//         <p class="p-titulo">${libro.nombre}</p>
-//         <p class="p-lista">ID: ${libro.id}</p>
-//         <p class="p-lista">Autor: ${libro.autor}</p>
-//         <p class="p-lista">Fecha: ${libro.fecha}</p>
-//         <p class="p-lista">Páginas: ${libro.paginas}</p>
-//         <p class="p-lista">Idioma: ${libro.idioma}</p>
-//         <p class="p-lista">Tipo de Archivo: ${libro.tipoarchivo}</p>
-//     </div>
-//     `
-//     contenedorlibros.append(lista)
-// });
 
 
-
-
+// let contadorid = 0;
+// while () {
+//     contadorid++;
+// }
+// console.log(contadorid)
 
