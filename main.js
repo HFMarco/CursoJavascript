@@ -19,7 +19,7 @@ class registro {
     }
 }
 function ingresardocumento() {
-
+    
     formulario = document.getElementById("formulario");
     id = document.getElementById("inputID");
     nombre = document.getElementById("inputNombre");
@@ -34,7 +34,11 @@ function inicializarEventos() {
     formulario.onsubmit = (event) => validarFormulario(event);
 }
 inputID.value = 0;
-
+// function mostrarceros(){
+// let str = inputID.value.toString();
+// let valoridmodif = str.padStart(4,"0");
+// return valoridmodif;
+// }
 function validarFormulario(event) {
     event.preventDefault();
     let id = inputID.value;
@@ -83,7 +87,54 @@ function mostrarlibros() {
             let lista = document.createElement("div");
             lista.className = "elemento-lista"
             lista.id = `lista lista-${libro.id}`
-            lista.innerHTML=`
+            if (libro.id<10) {
+                lista.innerHTML=`
+            <div class="contenedor_lista">
+                <p class="p-titulo">${libro.nombre}</p>
+                <p class="p-lista">ID: 000${libro.id}</p>
+                <p class="p-lista">Autor: ${libro.autor}</p>
+                <p class="p-lista">Fecha: ${libro.fecha}</p>
+                <p class="p-lista">Páginas: ${libro.paginas}</p>
+                <p class="p-lista">Idioma: ${libro.idioma}</p>
+                <p class="p-lista">Tipo de Archivo: ${libro.tipoarchivo}</p>
+                <div class="card-footer">
+                <button class="btn btn-danger" id="botonEliminar-${libro.id}" >Eliminar</button>
+                </div>
+            </div>
+            `
+            }
+            if (libro.id >= 10) {
+                lista.innerHTML=`
+            <div class="contenedor_lista">
+                <p class="p-titulo">${libro.nombre}</p>
+                <p class="p-lista">ID: 00${libro.id}</p>
+                <p class="p-lista">Autor: ${libro.autor}</p>
+                <p class="p-lista">Fecha: ${libro.fecha}</p>
+                <p class="p-lista">Páginas: ${libro.paginas}</p>
+                <p class="p-lista">Idioma: ${libro.idioma}</p>
+                <p class="p-lista">Tipo de Archivo: ${libro.tipoarchivo}</p>
+                <div class="card-footer">
+                <button class="btn btn-danger" id="botonEliminar-${libro.id}" >Eliminar</button>
+                </div>
+            </div>
+            `}
+            if (libro.id >= 100) {
+                lista.innerHTML=`
+            <div class="contenedor_lista">
+                <p class="p-titulo">${libro.nombre}</p>
+                <p class="p-lista">ID: 0${libro.id}</p>
+                <p class="p-lista">Autor: ${libro.autor}</p>
+                <p class="p-lista">Fecha: ${libro.fecha}</p>
+                <p class="p-lista">Páginas: ${libro.paginas}</p>
+                <p class="p-lista">Idioma: ${libro.idioma}</p>
+                <p class="p-lista">Tipo de Archivo: ${libro.tipoarchivo}</p>
+                <div class="card-footer">
+                <button class="btn btn-danger" id="botonEliminar-${libro.id}" >Eliminar</button>
+                </div>
+            </div>
+            `}
+            if (libro.id >= 1000) {
+                lista.innerHTML=`
             <div class="contenedor_lista">
                 <p class="p-titulo">${libro.nombre}</p>
                 <p class="p-lista">ID: ${libro.id}</p>
@@ -96,7 +147,7 @@ function mostrarlibros() {
                 <button class="btn btn-danger" id="botonEliminar-${libro.id}" >Eliminar</button>
                 </div>
             </div>
-            `
+            `}
             contenedorlibros.append(lista)
             valorID();
         let botonEliminar = document.getElementById(`botonEliminar-${libro.id}`);
@@ -106,6 +157,7 @@ function mostrarlibros() {
 }
 
 function main() {
+
     ingresardocumento();
     inicializarEventos();
 
