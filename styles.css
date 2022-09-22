@@ -54,7 +54,7 @@ main {
     text-align: center;
     font-size: 20px;
     text-decoration: underline;
-    text-transform: capitalize;
+    text-transform: uppercase;
 }
 .formulario{
     height: auto;
@@ -69,9 +69,23 @@ input{
     width: 350px;
     height: 30px;
     outline: none;
+    border-radius: 12px;
+    box-shadow: none;
+    border: 1.5px solid #e1e1e1;
 }
 input[type=text]:focus {
-    border: 3px solid #b5b5b5;
+    border: 3px solid #fc99fe;
+}
+input[type=number]:focus {
+    border: 3px solid #fc99fe;
+}
+input[type=date]:focus {
+    border: 3px solid #fc99fe;
+}
+input[type=date]{
+    text-align: center;
+    width: 200px;
+    font-size: 18px;
 }
 /* input {
     background-color: transparent;
@@ -88,4 +102,10 @@ input[type=text]:focus {
 select{
     width: 350px;
     height: 30px;
+}
+#inputID{
+    background-color: rgb(233, 233, 237);
+}
+#inputID:focus {
+    border: 1.5px solid rgb(233, 233, 237)
 }

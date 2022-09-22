@@ -1,5 +1,11 @@
+function valorID(){
+    inputID.value++;
+}
+function disminuirID(){
+    inputID.value--;
+    return inputID.value;
+}
 //Creando el constructor
-
 libros = [];
 class registro {
     constructor(id,nombre, autor, fecha, paginas, idioma, tipoarchivo){
@@ -12,10 +18,10 @@ class registro {
         this.tipoarchivo = tipoarchivo;
     }
 }
-//Almacena data
 function ingresardocumento() {
+
     formulario = document.getElementById("formulario");
-    id = document.getElementById("inputId");
+    id = document.getElementById("inputID");
     nombre = document.getElementById("inputNombre");
     autor = document.getElementById("inputAutor");
     fecha = document.getElementById("inputFecha");
@@ -23,19 +29,21 @@ function ingresardocumento() {
     idioma = document.getElementById("inputIdioma");
     tipoarchivo = document.getElementById("inputTipoArchivo");
 }
+
 function inicializarEventos() {
     formulario.onsubmit = (event) => validarFormulario(event);
 }
+inputID.value = 0;
+
 function validarFormulario(event) {
     event.preventDefault();
     let id = inputID.value;
     let nombre = inputNombre.value;
     let autor = inputAutor.value;
-    let fecha = parseFloat(inputFecha.value);
+    let fecha = inputFecha.value;
     let paginas = parseFloat(inputPaginas.value);
     let idioma = inputIdioma.value;
     let tipoarchivo = inputTipoArchivo.value;
-
     const idExiste = libros.some((libro) => libro.id === id);
     if (!idExiste) {
         let libro = new registro(
@@ -50,11 +58,12 @@ function validarFormulario(event) {
 
         libros.push(libro);
         formulario.reset();
-
-        pintarProductos();
+        
+        mostrarlibros();
     } else {
         alert("El id ya existe");
     }
+    
 }
 function eliminarRegistro(id) {
     let columnaBorrar = document.getElementById(`lista lista-${id}`);
@@ -64,9 +73,10 @@ function eliminarRegistro(id) {
 
     libros.splice(indiceBorrar, 1);
     columnaBorrar.remove();
+    disminuirID();
 }
 
-function pintarProductos() {
+function mostrarlibros() {
     let contenedorlibros = document.getElementById("mostrardocs");
     contenedorlibros.innerHTML = "";
         libros.forEach((libro) => {
@@ -88,22 +98,19 @@ function pintarProductos() {
             </div>
             `
             contenedorlibros.append(lista)
+            valorID();
         let botonEliminar = document.getElementById(`botonEliminar-${libro.id}`);
         botonEliminar.onclick = () => eliminarRegistro(libro.id);
+        
     });
 }
 
 function main() {
     ingresardocumento();
     inicializarEventos();
+
+
 }
 
 main();
-
-
-// let contadorid = 0;
-// while () {
-//     contadorid++;
-// }
-// console.log(contadorid)
 
