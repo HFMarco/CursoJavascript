@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,12 +8,38 @@
     <link rel="stylesheet" href="./styles.css">
     <title>APLICACIÓN</title>
 </head>
+
 <body>
     <header>
-
+        <div class="contenedor_usuario">
+            <div id="contenedorUsuario" hidden>
+                <p id="textoUsuario">Bienvenido:</p>
+            </div>
+            <div id="contenedorIdentificacion">
+                <h2>Identificate</h2>
+                <form id="formularioIdentificacion">
+                    <div>
+                        <div>
+                            <div>
+                                <label class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="inputUsuario" required />
+                            </div>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-secondary">
+                                Identificarse
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </header>
     <main>
-        <div class="titulo"><h1>Aplicación de Registro de Documentos / Libros</h1>
+        <button id="eliminardatausuario">Eliminar Usuario</button>
+        <button id="eliminardataregistro">Eliminar Registros</button>
+        <div class="titulo">
+            <h1>Aplicación de Registro de Documentos / Libros</h1>
         </div>
         <div class="contenedorreq">
             <div class="contenedor">
@@ -43,8 +70,8 @@
                     <div class="container">
                         <label class="label">Idioma:</label>
                         <select name="idiomas" id="inputIdioma">
-                            <option value="Español"selected>Español</option>
-                            <option value="Inglés" >Inglés</option>
+                            <option value="Español" selected>Español</option>
+                            <option value="Inglés">Inglés</option>
                             <option value="Portugés">Portugés</option>
                             <option value="Francés">Francés</option>
                             <option value="Aleman">Aleman</option>
@@ -53,8 +80,8 @@
                     <div class="container">
                         <label class="label">Tipo de Archivo:</label>
                         <select name="tipoarchivo" id="inputTipoArchivo">
-                            <option value="PDF"selected>PDF</option>
-                            <option value="Epub" >Epub</option>
+                            <option value="PDF" selected>PDF</option>
+                            <option value="Epub">Epub</option>
                             <option value="FB2">FB2</option>
                             <option value="TXT">TXT</option>
                             <option value="MOBI">MOBI</option>
@@ -66,7 +93,7 @@
                     </div>
                 </form>
             </div>
-        <div class="imagen"></div>
+            <div class="imagen"></div>
         </div>
         </div>
         <!-- Aqui se muestran los datos -->
@@ -78,4 +105,5 @@
     </footer>
     <script src="main.js"></script>
 </body>
+
 </html>

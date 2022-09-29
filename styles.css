@@ -6,6 +6,9 @@ main {
     overflow: hidden;
     font-family: "Work Sans", sans-serif;
 }
+.contenedor_usuario{
+    padding-left: 70%;
+}
 .titulo{
     text-align: center;
     text-decoration: none;
