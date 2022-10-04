@@ -79,7 +79,7 @@ function mostrarTextoUsuario() {
     contenedorUsuario.hidden = false;
     textoUsuario.innerHTML += ` ${usuario}`;
 }
-function mostrarFormularioIdentificacion() {
+function mostrarFormularioIdentificacion() {                
     contenedorIdentificacion.hidden = false;
     contenedorUsuario.hidden = true;
     textoUsuario.innerHTML = `Bienvenido: ${usuario}`;
