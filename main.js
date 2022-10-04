@@ -131,6 +131,7 @@ function mostrarlibros() {
     let contenedorlibros = document.getElementById("mostrardocs");
     contenedorlibros.innerHTML = "";
     libros.forEach((libro) => {
+        libro.paginas = libro.paginas  || 0;
         let lista = document.createElement("div");
         lista.className = "elemento-lista"
         lista.id = `lista lista-${libro.id}`
