@@ -11,21 +11,20 @@
 
 <body>
     <header>
+        <div class="container_principal">
         <div class="contenedor_usuario">
             <div id="contenedorUsuario" hidden>
                 <p id="textoUsuario">Bienvenido:</p>
             </div>
             <div id="contenedorIdentificacion">
-                <h2>Identificate</h2>
+                <h2 class="identificate">Identificate</h2>
                 <form id="formularioIdentificacion">
                     <div>
-                        <div>
-                            <div>
-                                <label class="form-label">Nombre</label>
-                                <input type="text" class="form-control" id="inputUsuario" required />
-                            </div>
+                        <div class="div_lbl">
+                            <label class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="inputUsuario" required />
                         </div>
-                        <div>
+                        <div class="div_btn">
                             <button type="submit" class="btn btn-secondary">
                                 Identificarse
                             </button>
@@ -34,10 +33,14 @@
                 </form>
             </div>
         </div>
+        <div class="contenedor_botones">    
+            <button id="eliminardatausuario">Eliminar Usuario</button>
+            <button id="eliminardataregistro">Eliminar Registros</button>
+        </div>
+    </div>
     </header>
     <main>
-        <button id="eliminardatausuario">Eliminar Usuario</button>
-        <button id="eliminardataregistro">Eliminar Registros</button>
+
         <div class="titulo">
             <h1>Aplicación de Registro de Documentos / Libros</h1>
         </div>
