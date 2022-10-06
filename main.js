@@ -1,3 +1,16 @@
+
+const botonSwal = document.getElementById("btn_identificar");
+
+botonSwal.onclick = mostrarSwal;
+
+function mostrarSwal() {
+Swal.fire({
+    icon: "success",
+    title: "Login Exitoso, Bienvenido " + inputUsuario.value,
+});
+}
+
+
 function valorID() {
     inputID.value++;
 }
@@ -146,7 +159,7 @@ function mostrarlibros() {
                 <p class="p-lista">Idioma: ${libro.idioma}</p>
                 <p class="p-lista">Tipo de Archivo: ${libro.tipoarchivo}</p>
                 <div class="card-footer">
-                <button class="btn btn-danger" id="botonEliminar-${libro.id}" >Eliminar</button>
+                <button class="btn_eliminar" id="botonEliminar-${libro.id}" >Eliminar</button>
                 </div>
             </div>
             `
@@ -162,7 +175,7 @@ function mostrarlibros() {
                 <p class="p-lista">Idioma: ${libro.idioma}</p>
                 <p class="p-lista">Tipo de Archivo: ${libro.tipoarchivo}</p>
                 <div class="card-footer">
-                <button class="btn btn-danger" id="botonEliminar-${libro.id}" >Eliminar</button>
+                <button class="btn_eliminar" id="botonEliminar-${libro.id}" >Eliminar</button>
                 </div>
             </div>
             `
@@ -178,7 +191,7 @@ function mostrarlibros() {
                 <p class="p-lista">Idioma: ${libro.idioma}</p>
                 <p class="p-lista">Tipo de Archivo: ${libro.tipoarchivo}</p>
                 <div class="card-footer">
-                <button class="btn btn-danger" id="botonEliminar-${libro.id}" >Eliminar</button>
+                <button class="btn_eliminar" id="botonEliminar-${libro.id}" >Eliminar</button>
                 </div>
             </div>
             `
@@ -194,7 +207,7 @@ function mostrarlibros() {
                 <p class="p-lista">Idioma: ${libro.idioma}</p>
                 <p class="p-lista">Tipo de Archivo: ${libro.tipoarchivo}</p>
                 <div class="card-footer">
-                <button class="btn btn-danger" id="botonEliminar-${libro.id}" >Eliminar</button>
+                <button class="btn_eliminar" id="botonEliminar-${libro.id}" >Eliminar</button>
                 </div>
             </div>
             `

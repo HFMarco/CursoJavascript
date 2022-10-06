@@ -81,7 +81,11 @@ main {
     margin: 0 auto;
     padding-left:30% ;
 }
-
+.btn_eliminar{
+    margin-left: 30%;
+    margin-bottom: 10px;
+    color: red;
+}
 .imagen {
     margin: 0 auto;
     height: 350px;
