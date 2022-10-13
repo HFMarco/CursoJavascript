@@ -1,16 +1,3 @@
-
-const botonSwal = document.getElementById("btn_identificar");
-
-botonSwal.onclick = mostrarSwal;
-
-function mostrarSwal() {
-Swal.fire({
-    icon: "success",
-    title: "Login Exitoso, Bienvenido " + inputUsuario.value,
-});
-}
-
-
 function valorID() {
     inputID.value++;
 }
@@ -67,12 +54,14 @@ function inicializarEventos() {
     btneliminardata.onclick = eliminardata;
     btneliminarusuario.onclick = eliminarusuario;
 }
-function eliminarusuario(){
+
+function eliminarusuario() {
     localStorage.clear(localStorage.key("usuario"));
     usuario = "";
     actualizarUsuarioStorage();
     mostrarFormularioIdentificacion();
 }
+
 function eliminardata() {
     localStorage.clear();
     libros = [];
@@ -87,11 +76,13 @@ function identificarUsuario(event) {
     actualizarUsuarioStorage();
     mostrarTextoUsuario();
 }
+
 function mostrarTextoUsuario() {
     contenedorIdentificacion.hidden = true;
     contenedorUsuario.hidden = false;
     textoUsuario.innerHTML += ` ${usuario}`;
 }
+
 function mostrarFormularioIdentificacion() {
     contenedorIdentificacion.hidden = false;
     contenedorUsuario.hidden = true;
@@ -144,7 +135,7 @@ function mostrarlibros() {
     let contenedorlibros = document.getElementById("mostrardocs");
     contenedorlibros.innerHTML = "";
     libros.forEach((libro) => {
-        libro.paginas = libro.paginas  || 0;
+        libro.paginas = libro.paginas || 0;
         let lista = document.createElement("div");
         lista.className = "elemento-lista"
         lista.id = `lista lista-${libro.id}`
@@ -221,6 +212,17 @@ function mostrarlibros() {
     });
 }
 
+const botonSwal = document.getElementById("btn_identificar");
+
+botonSwal.onclick = mostrarSwal;
+
+function mostrarSwal() {
+    Swal.fire({
+        icon: "success",
+        title: "Login Exitoso, Bienvenido " + inputUsuario.value,
+    });
+}
+
 function agregaritemls() {
     let librosJSON = JSON.stringify(libros);
     localStorage.setItem("LIBROS", librosJSON);
@@ -237,6 +239,7 @@ function obteneritemsls() {
         mostrarlibros();
     }
 }
+
 function obtenerUsuarioStorage() {
     let usuarioAlmacenado = localStorage.getItem("usuario");
     if (usuarioAlmacenado) {
@@ -244,11 +247,22 @@ function obtenerUsuarioStorage() {
         mostrarTextoUsuario();
     }
 }
+async function consultarProductosServer() {
+    try {
+        const response = await fetch("https://634786e6db76843976acfbfe.mockapi.io/data");
+        const data = await response.json();
+        libros = [...data];
+        mostrarlibros();
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 function main() {
     ingresardocumento();
     inicializarEventos();
-    obteneritemsls();
+    consultarProductosServer();
+    // obteneritemsls();
     obtenerUsuarioStorage();
 }
 
