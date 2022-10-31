@@ -66,7 +66,7 @@ function eliminardata() {
     localStorage.clear();
     libros = [];
     mostrarlibros();
-    inputID.value = 0;
+    inputID.value = 1;
 }
 
 function identificarUsuario(event) {
@@ -88,7 +88,7 @@ function mostrarFormularioIdentificacion() {
     contenedorUsuario.hidden = true;
     textoUsuario.innerHTML = `Bienvenido: ${usuario}`;
 }
-inputID.value = 0;
+inputID.value = 1;
 
 function validarFormulario(event) {
     event.preventDefault();
@@ -111,10 +111,10 @@ function validarFormulario(event) {
             tipoarchivo
         );
 
-        libros.push(libro);
-        formulario.reset();
-        agregaritemls();
-        mostrarlibros();
+
+        // agregaritemls();
+        registrarLibroServer(libro);
+
     } else {
         valorID();
     }
@@ -258,11 +258,27 @@ async function consultarProductosServer() {
     }
 }
 
+async function registrarLibroServer(libro){
+    try {
+        const response = await fetch("https://634786e6db76843976acfbfe.mockapi.io/data",{
+            method:"POST",
+            body:JSON.stringify(libro),
+        });
+        console.log(response)
+
+        libros.push(libro);
+        formulario.reset();
+        mostrarlibros();
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 function main() {
     ingresardocumento();
     inicializarEventos();
-    consultarProductosServer();
-    // obteneritemsls();
+    // consultarProductosServer();
+    obteneritemsls();
     obtenerUsuarioStorage();
 }
 
